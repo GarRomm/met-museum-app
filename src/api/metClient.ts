@@ -25,7 +25,6 @@ function buildUrl(path: string, params?: Record<string, string>): string {
 
 export function fetchObjects(params?: ObjectsParams): Promise<ObjectsResponse> {
   const p: Record<string, string> = {}
-  if (params?.metadataDate) p.metadataDate = params.metadataDate
   if (params?.departmentIds?.length) p.departmentIds = params.departmentIds.join('|')
   return get<ObjectsResponse>(buildUrl(`${BASE}/objects`, p))
 }
@@ -43,7 +42,6 @@ export function searchArtworks(params: SearchParams): Promise<SearchResponse> {
   const p: Record<string, string> = { q: params.q }
   if (params.isHighlight)                                         p.isHighlight = 'true'
   if (params.title)                                               p.title = 'true'
-  if (params.tags)                                                p.tags = 'true'
   if (params.departmentId !== undefined)                          p.departmentId = String(params.departmentId)
   if (params.isOnView)                                            p.isOnView = 'true'
   if (params.artistOrCulture)                                     p.artistOrCulture = 'true'

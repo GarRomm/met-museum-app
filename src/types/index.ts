@@ -105,7 +105,6 @@ export interface SearchParams {
   q: string
   isHighlight?: boolean
   title?: boolean
-  tags?: boolean
   departmentId?: number
   isOnView?: boolean
   artistOrCulture?: boolean
@@ -117,7 +116,6 @@ export interface SearchParams {
 }
 
 export interface ObjectsParams {
-  metadataDate?: string
   departmentIds?: number[]
 }
 
