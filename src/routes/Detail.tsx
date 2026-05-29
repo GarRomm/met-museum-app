@@ -88,6 +88,20 @@ export default function Detail() {
             </div>
           )}
 
+          {data.constituents && data.constituents.length > 0 && (!data.artistDisplayName || data.constituents.length > 1) && (
+            <div className="flex flex-col gap-1">
+              {data.constituents.length > 1 && (
+                <p className="text-xs font-medium uppercase tracking-wider text-stone-400">Contributeurs</p>
+              )}
+              {data.constituents.map((c) => (
+                <div key={c.constituentID}>
+                  <p className="font-medium text-stone-800">{c.name}</p>
+                  {c.role && <p className="text-sm text-stone-500">{c.role}</p>}
+                </div>
+              ))}
+            </div>
+          )}
+
           <dl className="flex flex-col gap-2 text-sm">
             {data.objectDate && (
               <div>
